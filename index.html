@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<title>北京6日游 方案D 6/17到6/22飞</title>
-<meta name="description" content="北京自由行-前门-故宫-天坛-环球-颐和园-长城-什刹海-国博-北海-雍和宫">
+<title>北京7日游 融合版 19景点全覆盖</title>
+<meta name="description" content="北京自由行-故宫-升旗-长城-国博-天坛-环球-颐和园-圆明园-雍和宫-北海-什刹海-恭王府">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
@@ -244,40 +244,43 @@ const DAYS = [
   { id: 1, label: "Day 1", date: "6/17 周三·17:00到", title: "前门胡同群", locations: [
     { name: "前门大街", lat: 39.8945, lng: 116.3975, type: "food", time: "17:00-20:00", desc: "西打磨厂→草厂三条→鲜鱼口→大栅栏→北京坊" },
   ] },
-  { id: 2, label: "Day 2", date: "6/18 周四", title: "升旗·故宫·景山·天坛", locations: [
+  { id: 2, label: "Day 2", date: "6/18 周四", title: "⭐升旗·🏛️故宫全天·⛰️景山", locations: [
     { name: "天安门广场（升旗）", lat: 39.9042, lng: 116.3974, type: "spot", time: "~04:45", desc: "03:30到安检，看完回前门补觉" },
-    { name: "故宫博物院（精华路线）", lat: 39.9163, lng: 116.3972, type: "spot", time: "08:30-12:00", desc: "中轴线→武英殿→长春宫→珍宝馆（现场买票10元）" },
-    { name: "景山公园", lat: 39.9222, lng: 116.3966, type: "spot", time: "13:00-13:30", desc: "万春亭拍故宫全景，门票2元" },
+    { name: "故宫博物院（全天深度）", lat: 39.9163, lng: 116.3972, type: "spot", time: "09:00-15:00", desc: "中轴线→珍宝馆→钟表馆→东西六宫→御花园" },
+    { name: "景山公园", lat: 39.9222, lng: 116.3966, type: "spot", time: "15:00-15:30", desc: "万春亭拍故宫全景，门票2元" },
+    { name: "王府井（可选）", lat: 39.9131, lng: 116.4104, type: "spot", time: "16:00-17:30", desc: "累了就跳过" },
+  ] },
+  { id: 3, label: "Day 3", date: "6/19 周五·端午", title: "🧱八达岭长城一日", locations: [
+    { name: "八达岭长城", lat: 40.3584, lng: 116.0155, type: "spot", time: "08:00-12:00", desc: "北线好汉坡，高铁往返，下午自由休息" },
+  ] },
+  { id: 4, label: "Day 4", date: "6/20 周六·端午", title: "🏛️国博·🥩牛街·🏛️天坛", locations: [
+    { name: "国家博物馆", lat: 39.9054, lng: 116.3971, type: "spot", time: "09:00-12:00", desc: "免费需预约，看古代中国展厅" },
+    { name: "牛街（聚宝源）", lat: 39.8885, lng: 116.3589, type: "food", time: "12:00-14:00", desc: "聚宝源涮肉，国博过去3站地铁" },
     { name: "天坛公园", lat: 39.8822, lng: 116.4066, type: "spot", time: "15:00-17:00", desc: "联票34元，祈年殿+回音壁" },
   ] },
-  { id: 3, label: "Day 3", date: "6/19 周五·端午", title: "🎢 环球影城全天", locations: [
-    { name: "北京环球度假区", lat: 39.8454, lng: 116.6722, type: "spot", time: "08:30-20:30", desc: "进园直冲哈利波特！建议买全项优速通" },
+  { id: 5, label: "Day 5", date: "6/21 周日·端午", title: "🏯北海·🏯雍和宫·🌳地坛·🥁鼓楼·🏘️恭王府·🚶烟袋斜街·🌅什刹海", locations: [
+    { name: "北海公园", lat: 39.9241, lng: 116.3893, type: "spot", time: "09:00-10:30", desc: "白塔+湖边，门票10元" },
+    { name: "雍和宫", lat: 39.9475, lng: 116.4174, type: "spot", time: "11:00-12:00", desc: "香火最旺，红墙出片，门票25元" },
+    { name: "地坛公园", lat: 39.9537, lng: 116.4102, type: "spot", time: "12:00-12:20", desc: "雍和宫对面，门票2元" },
+    { name: "鼓楼", lat: 39.9405, lng: 116.4042, type: "spot", time: "14:00-15:00", desc: "打卡拍照" },
+    { name: "恭王府", lat: 39.9379, lng: 116.3833, type: "spot", time: "15:00-16:30", desc: "下午光线好，门票40元" },
+    { name: "烟袋斜街", lat: 39.94, lng: 116.4, type: "spot", time: "16:30-17:00", desc: "小吃+文创" },
+    { name: "什刹海（后海）日落", lat: 39.9372, lng: 116.3879, type: "spot", time: "18:30-19:30", desc: "🌅日落最美时段，免费不需预约" },
   ] },
-  { id: 4, label: "Day 4", date: "6/20 周六·端午", title: "颐和园·圆明园", locations: [
+  { id: 6, label: "Day 6", date: "6/22 周一·工作日", title: "🎢环球影城全天", locations: [
+    { name: "北京环球度假区", lat: 39.8454, lng: 116.6722, type: "spot", time: "08:30-20:30", desc: "工作日人最少，建议优速通" },
+  ] },
+  { id: 7, label: "Day 7", date: "6/23 周二·18:00飞", title: "🌿颐和园·🏛️圆明园→✈️", locations: [
     { name: "颐和园", lat: 39.9998, lng: 116.2755, type: "spot", time: "09:00-12:30", desc: "十七孔桥+佛香阁，联票60元" },
-    { name: "圆明园", lat: 39.9991, lng: 116.3033, type: "spot", time: "14:00-16:00", desc: "西洋楼遗址+大水法，联票25元" },
-  ] },
-  { id: 5, label: "Day 5", date: "6/21 周日·端午", title: "长城·鼓楼·什刹海·恭王府", locations: [
-    { name: "北京北站", lat: 39.9436, lng: 116.3477, type: "transport", time: "08:00-08:25", desc: "高铁20min到八达岭" },
-    { name: "八达岭长城（半程）", lat: 40.3584, lng: 116.0155, type: "spot", time: "09:00-11:30", desc: "北线到好汉坡即可" },
-    { name: "鼓楼", lat: 39.9405, lng: 116.4042, type: "spot", time: "15:00-15:15", desc: "打卡拍照" },
-    { name: "什刹海（后海）", lat: 39.9372, lng: 116.3879, type: "spot", time: "15:30-16:30", desc: "免费散步，不需预约" },
-    { name: "恭王府", lat: 39.9379, lng: 116.3833, type: "spot", time: "16:30-18:00", desc: "下午4点后人少光线好" },
-    { name: "烟袋斜街", lat: 39.94, lng: 116.4, type: "spot", time: "18:00-18:30", desc: "小吃+文创" },
-  ] },
-  { id: 6, label: "Day 6", date: "6/22 周一·18:00飞", title: "国博·北海·雍和宫·地坛→✈️", locations: [
-    { name: "国家博物馆", lat: 39.9054, lng: 116.3971, type: "spot", time: "09:00-11:00", desc: "免费需预约，看古代中国展厅" },
-    { name: "北海公园", lat: 39.9241, lng: 116.3893, type: "spot", time: "11:30-12:15", desc: "白塔+湖边走走，门票10元" },
-    { name: "雍和宫", lat: 39.9475, lng: 116.4174, type: "spot", time: "13:30-14:15", desc: "香火最旺，红墙出片" },
-    { name: "地坛公园", lat: 39.9537, lng: 116.4102, type: "spot", time: "14:20-14:40", desc: "雍和宫对面，门票2元" },
+    { name: "圆明园", lat: 39.9991, lng: 116.3033, type: "spot", time: "13:30-15:30", desc: "西洋楼+大水法，联票25元→去机场✈️" },
   ] },
 ];
 function overviewContent() {
   return `
-<div class="hero"><h1>🏯 北京 6 日游 · 方案D</h1><p class="subtitle">6/17 17:00到 → 6/22 18:00飞 | 天坛移Day2，北海移Day6</p></div>
+<div class="hero"><h1>🏯 北京 7 日游 · 融合版</h1><p class="subtitle">6/17 17:00到 → 6/23 18:00飞 | 19景点全覆盖</p></div>
 <div class="info-grid">
   <div class="info-card"><div class="label">🏨 住宿</div><div class="value">前门G口附近</div></div>
-  <div class="info-card"><div class="label">🎯 策略</div><div class="value">天坛放Day2下午<br><span style="font-size:13px;font-weight:400;color:var(--text-secondary)">北海放Day6上午</span></div></div>
+  <div class="info-card"><div class="label">🎯 策略</div><div class="value">环球6/22周一<br><span style="font-size:13px;font-weight:400;color:var(--text-secondary)">什刹海18:30看日落</span></div></div>
   <div class="info-card"><div class="label">🚇 交通</div><div class="value">亿通行APP</div></div>
   <div class="info-card"><div class="label">💰 预算</div><div class="value">~3k-5k元</div></div>
 </div>
@@ -288,7 +291,7 @@ function overviewContent() {
     <div style="font-size:14px;font-weight:500">🔴 故宫今晚(6/14)20:00放6/18票！提前实名认证</div>
   </div>
   <div class="info-card" style="grid-column:1/-1;background:var(--tint-orange);color:#fff;border:none">
-    <div style="font-size:14px;font-weight:500">🔄 6/17 17:00到京 → 6/22 18:00飞广州</div>
+    <div style="font-size:14px;font-weight:500">🌅 6/21什刹海18:30-19:30看日落（6月北京19:40日落）</div>
   </div>
 </div>
 
@@ -297,50 +300,59 @@ function overviewContent() {
   <div class="info-card" style="grid-column:1/-1;background:#fff;border-left:4px solid var(--tint-blue)">
     <div style="font-size:14px;font-weight:600">Day1 6/17（三）17:00到</div>
     <div style="font-size:13px;margin-top:4px;color:var(--text-secondary);line-height:1.6">
-    <b>17:00-20:00</b> 前门胡同群逛吃（西打磨厂→草厂三条→鲜鱼口→大栅栏→北京坊）
+    <b>17:00-20:00</b> 前门胡同群逛吃
     </div>
   </div>
   <div class="info-card" style="grid-column:1/-1;background:#fff;border-left:4px solid var(--tint-red)">
-    <div style="font-size:14px;font-weight:600">Day2 6/18（四）</div>
+    <div style="font-size:14px;font-weight:600">Day2 6/18（四）⭐升旗·故宫·景山·王府井</div>
     <div style="font-size:13px;margin-top:4px;color:var(--text-secondary);line-height:1.6">
     <b>03:30</b> 天安门安检<br>
-    <b>~04:45</b> 升旗 → 回前门补觉到09:00<br>
-    <b>08:30-12:00</b> 故宫（中轴线→武英殿→长春宫→珍宝馆）<br>
-    <b>13:00-13:30</b> 景山公园（2元）<br>
-    <b>15:00-17:00</b> 天坛（联票34元）
-    </div>
-  </div>
-  <div class="info-card" style="grid-column:1/-1;background:#fff;border-left:4px solid var(--tint-purple)">
-    <div style="font-size:14px;font-weight:600">Day3 6/19（五·端午）</div>
-    <div style="font-size:13px;margin-top:4px;color:var(--text-secondary);line-height:1.6">
-    <b>08:30-20:30</b> 环球影城全天（建议全项优速通）
-    </div>
-  </div>
-  <div class="info-card" style="grid-column:1/-1;background:#fff;border-left:4px solid var(--tint-green)">
-    <div style="font-size:14px;font-weight:600">Day4 6/20（六·端午）</div>
-    <div style="font-size:13px;margin-top:4px;color:var(--text-secondary);line-height:1.6">
-    <b>09:00-12:30</b> 颐和园（联票60元）<br>
-    <b>14:00-16:00</b> 圆明园（联票25元）
-    </div>
-  </div>
-  <div class="info-card" style="grid-column:1/-1;background:#fff;border-left:4px solid var(--tint-orange)">
-    <div style="font-size:14px;font-weight:600">Day5 6/21（日·端午）</div>
-    <div style="font-size:13px;margin-top:4px;color:var(--text-secondary);line-height:1.6">
-    <b>08:00-08:25</b> 高铁到八达岭<br>
-    <b>09:00-11:30</b> 长城半程<br>
-    <b>15:00-15:15</b> 鼓楼<br>
-    <b>15:30-16:30</b> 什刹海<br>
-    <b>16:30-18:00</b> 恭王府（40元）<br>
-    <b>18:00-18:30</b> 烟袋斜街
+    <b>~04:45</b> ⭐升旗 → 回前门补觉<br>
+    <b>09:00-15:00</b> 🏛️故宫全天深度（中轴线→珍宝馆→东西六宫）<br>
+    <b>15:00-15:30</b> ⛰️景山公园（2元）<br>
+    <b>16:00-17:30</b> 🛍️王府井（可选）
     </div>
   </div>
   <div class="info-card" style="grid-column:1/-1;background:#fff;border-left:4px solid #8e8e93">
-    <div style="font-size:14px;font-weight:600">Day6 6/22（一）18:00飞</div>
+    <div style="font-size:14px;font-weight:600">Day3 6/19（五·端午）🧱长城</div>
     <div style="font-size:13px;margin-top:4px;color:var(--text-secondary);line-height:1.6">
-    <b>09:00-11:00</b> 国博（免费需预约）<br>
-    <b>11:30-12:15</b> 北海公园（10元）<br>
-    <b>13:30-14:15</b> 雍和宫（25元）<br>
-    <b>14:20-14:40</b> 地坛（2元）→ 🚇去机场→18:00飞
+    <b>07:00-07:25</b> 🚄高铁到八达岭<br>
+    <b>08:00-12:00</b> 🧱长城半程（好汉坡）<br>
+    下午自由休息
+    </div>
+  </div>
+  <div class="info-card" style="grid-column:1/-1;background:#fff;border-left:4px solid var(--tint-green)">
+    <div style="font-size:14px;font-weight:600">Day4 6/20（六·端午）🏛️国博·🥩牛街·🏛️天坛</div>
+    <div style="font-size:13px;margin-top:4px;color:var(--text-secondary);line-height:1.6">
+    <b>09:00-12:00</b> 🏛️国博（免费需预约）<br>
+    <b>12:00-14:00</b> 🥩牛街聚宝源<br>
+    <b>15:00-17:00</b> 🏛️天坛（联票34元）
+    </div>
+  </div>
+  <div class="info-card" style="grid-column:1/-1;background:#fff;border-left:4px solid var(--tint-orange)">
+    <div style="font-size:14px;font-weight:600">Day5 6/21（日·端午）🏯北海·雍和宫·地坛·鼓楼·恭王府·🌅什刹海日落</div>
+    <div style="font-size:13px;margin-top:4px;color:var(--text-secondary);line-height:1.6">
+    <b>09:00-10:30</b> 🏯北海公园（10元）<br>
+    <b>11:00-12:00</b> 🏯雍和宫（25元）<br>
+    <b>12:00-12:20</b> 🌳地坛公园（2元）<br>
+    <b>14:00-15:00</b> 🥁鼓楼<br>
+    <b>15:00-16:30</b> 🏘️恭王府（40元）<br>
+    <b>16:30-17:00</b> 🚶烟袋斜街<br>
+    <b>18:30-19:30</b> 🌅什刹海看日落🔥
+    </div>
+  </div>
+  <div class="info-card" style="grid-column:1/-1;background:#fff;border-left:4px solid var(--tint-purple)">
+    <div style="font-size:14px;font-weight:600">Day6 6/22（一）🎢环球影城</div>
+    <div style="font-size:13px;margin-top:4px;color:var(--text-secondary);line-height:1.6">
+    <b>08:30-20:30</b> 环球影城全天（周一工作日人最少）
+    </div>
+  </div>
+  <div class="info-card" style="grid-column:1/-1;background:#fff;border-left:4px solid #34c759">
+    <div style="font-size:14px;font-weight:600">Day7 6/23（二）18:00飞✈️ 🌿颐和园·🏛️圆明园</div>
+    <div style="font-size:13px;margin-top:4px;color:var(--text-secondary);line-height:1.6">
+    <b>09:00-12:30</b> 🌿颐和园（联票60元）<br>
+    <b>13:30-15:30</b> 🏛️圆明园（联票25元）<br>
+    <b>15:30-16:30</b> 🚇去机场→<b>18:00</b>✈️飞广州
     </div>
   </div>
 </div>
@@ -348,18 +360,18 @@ function overviewContent() {
 <div class="section-head">📱 预约清单</div>
 <div class="info-grid">
   <div class="info-card" style="grid-column:1/-1;background:#ff3b30;color:#fff;border:none">
-    <div style="font-size:14px;font-weight:600">🔴 今晚8点必须抢</div>
-    <div style="font-size:13px;margin-top:4px;opacity:.9">故宫（6/18）— 「故宫博物院」小程序</div>
+    <div style="font-size:14px;font-weight:600">🔴 今晚8点抢</div>
+    <div style="font-size:13px;margin-top:4px;opacity:.9">故宫（6/18）— 「故宫博物院」小程序，提前实名认证</div>
   </div>
   <div class="info-card" style="grid-column:1/-1;background:#ff9500;color:#fff;border:none">
     <div style="font-size:14px;font-weight:600">🟡 现在就能约</div>
     <div style="font-size:13px;margin-top:6px;opacity:.9">
     • 天安门升旗（6/18）— 「天安门广场预约参观」选升旗<br>
-    • 环球影城（6/19）— 官方小程序买票+全项优速通<br>
-    • 八达岭长城（6/21）— 「长城内外旅游」小程序，40元<br>
-    • 天坛（6/18）— 「畅游公园」小程序，联票34元<br>
-    • 国博（6/22）— 「国家博物馆」小程序，免费<br>
-    • 恭王府（6/21）— 「恭王府博物馆」小程序，40元
+    • 八达岭长城（6/19）— 「长城内外旅游」小程序，40元<br>
+    • 国博（6/20）— 「国家博物馆」小程序，免费<br>
+    • 天坛（6/20）— 「畅游公园」小程序，联票34元<br>
+    • 恭王府（6/21）— 「恭王府博物馆」小程序，40元<br>
+    • 环球影城（6/22）— 官方小程序买票+优速通
     </div>
   </div>
   <div class="info-card" style="grid-column:1/-1;border-left:4px solid #34c759">
@@ -368,7 +380,7 @@ function overviewContent() {
   </div>
   <div class="info-card" style="grid-column:1/-1;border-left:4px solid #8e8e93">
     <div style="font-size:14px;font-weight:600">⚪ 现场搞定</div>
-    <div style="font-size:13px;margin-top:4px;color:var(--text-secondary)">景山/雍和宫/地坛现场扫码</div>
+    <div style="font-size:13px;margin-top:4px;color:var(--text-secondary)">景山(2元)、雍和宫(25元)、地坛(2元)、什刹海免费</div>
   </div>
 </div>`;
 }
