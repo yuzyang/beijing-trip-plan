@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<title>北京7日游 优化融合版 奥林匹克夜景+什刹海日落</title>
-<meta name="description" content="北京自由行-故宫-升旗-长城-国博-天坛-环球-颐和园-圆明园-雍和宫-北海-什刹海日落-奥林匹克夜景">
+<title>北京7日游 最终版 环球6/17工作日</title>
+<meta name="description" content="北京自由行-环球影城-故宫-升旗-长城-颐和园-圆明园-北海-雍和宫-什刹海日落-天坛-牛街">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
@@ -241,123 +241,119 @@ const HOTEL = { name: "前门G口附近", lat: 39.8965, lng: 116.397 };
 
 const DAYS = [
   { id: 0, label: "总览", color: "#0071e3", locations: [] },
-  { id: 1, label: "Day 1", date: "6/17 周三·17:00到", title: "前门胡同群", locations: [
+  { id: 1, label: "Day 1", date: "6/16 周二·出发", title: "前门胡同群", locations: [
     { name: "前门大街", lat: 39.8945, lng: 116.3975, type: "food", time: "17:00-20:30", desc: "西打磨厂→草厂三条→鲜鱼口→大栅栏→北京坊" },
   ] },
-  { id: 2, label: "Day 2", date: "6/18 周四", title: "⭐升旗·🏛️故宫·⛰️景山·🌃奥林匹克夜景", locations: [
-    { name: "天安门广场（升旗）", lat: 39.9042, lng: 116.3974, type: "spot", time: "~04:45", desc: "03:30到安检，看完回前门补觉" },
-    { name: "故宫博物院（全天深度）", lat: 39.9163, lng: 116.3972, type: "spot", time: "09:00-15:00", desc: "中轴线→珍宝馆→钟表馆→东西六宫→御花园，租讲解器" },
+  { id: 2, label: "Day 2", date: "6/17 周三·工作日", title: "🎢环球影城全天", locations: [
+    { name: "北京环球度假区", lat: 39.8454, lng: 116.6722, type: "spot", time: "08:30-20:30", desc: "工作日+优速通，体验最佳！进园直冲哈利波特" },
+  ] },
+  { id: 3, label: "Day 3", date: "6/18 周四", title: "⭐升旗·🏛️故宫·⛰️景山", locations: [
+    { name: "天安门广场（升旗）", lat: 39.9042, lng: 116.3974, type: "spot", time: "03:30-04:45", desc: "03:30到安检，看完回前门补觉" },
+    { name: "故宫博物院（全天深度）", lat: 39.9163, lng: 116.3972, type: "spot", time: "09:00-15:00", desc: "已抢票✅中轴线→珍宝馆→东西六宫，租讲解器" },
     { name: "景山公园", lat: 39.9222, lng: 116.3966, type: "spot", time: "15:00-15:40", desc: "万春亭拍故宫全景，门票2元" },
-    { name: "王府井（可选）", lat: 39.9131, lng: 116.4104, type: "spot", time: "16:00-17:30", desc: "⚠️可删，累了直接回酒店" },
+  ] },
+  { id: 4, label: "Day 4", date: "6/19 周五·端午", title: "🧱八达岭长城·🌃奥林匹克夜景", locations: [
+    { name: "北京北站", lat: 39.9436, lng: 116.3477, type: "transport", time: "07:00-07:25", desc: "高铁20min到八达岭" },
+    { name: "八达岭长城（半程）", lat: 40.3584, lng: 116.0155, type: "spot", time: "08:00-12:00", desc: "北线好汉坡，穿舒服鞋" },
     { name: "奥林匹克公园夜景", lat: 39.99, lng: 116.391, type: "spot", time: "18:30-20:00", desc: "鸟巢+水立方夜景，现代北京代表" },
   ] },
-  { id: 3, label: "Day 3", date: "6/19 周五·端午", title: "🧱八达岭长城一日", locations: [
-    { name: "八达岭长城", lat: 40.3584, lng: 116.0155, type: "spot", time: "08:00-12:00", desc: "北线好汉坡，高铁往返，穿舒服鞋" },
-  ] },
-  { id: 4, label: "Day 4", date: "6/20 周六·端午", title: "🏛️国博·🥩牛街·🏛️天坛", locations: [
-    { name: "国家博物馆", lat: 39.9054, lng: 116.3971, type: "spot", time: "09:00-12:00", desc: "免费需预约，重点看古代中国展厅" },
-    { name: "牛街（聚宝源）", lat: 39.8885, lng: 116.3589, type: "food", time: "12:00-14:00", desc: "聚宝源涮肉，国博过去3站地铁" },
-    { name: "天坛公园", lat: 39.8822, lng: 116.4066, type: "spot", time: "15:00-17:00", desc: "联票34元，祈年殿+回音壁+丹陛桥" },
-  ] },
-  { id: 5, label: "Day 5", date: "6/21 周日·端午", title: "🏯北海·雍和宫·鼓楼·恭王府·🌅什刹海日落", locations: [
+  { id: 5, label: "Day 5", date: "6/20 周六·端午", title: "🏯北海·雍和宫·鼓楼·恭王府·🌅什刹海日落", locations: [
     { name: "北海公园", lat: 39.9241, lng: 116.3893, type: "spot", time: "09:00-10:30", desc: "白塔+湖边，门票10元" },
     { name: "雍和宫", lat: 39.9475, lng: 116.4174, type: "spot", time: "11:00-12:00", desc: "红墙出片，门票25元" },
     { name: "地坛公园（可选）", lat: 39.9537, lng: 116.4102, type: "spot", time: "12:00-12:20", desc: "⚠️可删，雍和宫对面，累了跳过" },
     { name: "鼓楼", lat: 39.9405, lng: 116.4042, type: "spot", time: "14:00-15:00", desc: "打卡拍照" },
     { name: "恭王府", lat: 39.9379, lng: 116.3833, type: "spot", time: "15:00-16:30", desc: "下午光线好，门票40元" },
-    { name: "烟袋斜街", lat: 39.94, lng: 116.4, type: "spot", time: "16:30-17:00", desc: "小吃+文创" },
-    { name: "什刹海（后海）日落", lat: 39.9372, lng: 116.3879, type: "spot", time: "18:30-19:40", desc: "🌅强烈推荐！6月北京19:40日落，湖边咖啡馆坐坐" },
+    { name: "烟袋斜街", lat: 39.94, lng: 116.4, type: "spot", time: "16:30-17:00", desc: "小吃+文创，什刹海旁边顺路逛" },
+    { name: "什刹海（后海）日落", lat: 39.9372, lng: 116.3879, type: "spot", time: "18:30-19:40", desc: "🌅强烈推荐！湖边咖啡馆坐坐" },
   ] },
-  { id: 6, label: "Day 6", date: "6/22 周一·工作日", title: "🎢环球影城全天", locations: [
-    { name: "北京环球度假区", lat: 39.8454, lng: 116.6722, type: "spot", time: "08:30-20:30", desc: "周一人最少，建议优速通，带充电宝/防晒" },
+  { id: 6, label: "Day 6", date: "6/21 周日·端午", title: "🌿颐和园·🏛️圆明园", locations: [
+    { name: "颐和园", lat: 39.9998, lng: 116.2755, type: "spot", time: "09:00-12:30", desc: "佛香阁+十七孔桥+长廊，联票60元" },
+    { name: "圆明园", lat: 39.9991, lng: 116.3033, type: "spot", time: "14:00-16:00", desc: "西洋楼+大水法遗址，联票25元" },
   ] },
-  { id: 7, label: "Day 7", date: "6/23 周二·18:00飞", title: "🌿颐和园·🏛️圆明园→✈️", locations: [
-    { name: "颐和园", lat: 39.9998, lng: 116.2755, type: "spot", time: "08:00-12:00", desc: "佛香阁+十七孔桥+长廊，联票60元，越早越凉快" },
-    { name: "圆明园", lat: 39.9991, lng: 116.3033, type: "spot", time: "13:00-15:00", desc: "西洋楼+大水法遗址，联票25元→去机场✈️" },
+  { id: 7, label: "Day 7", date: "6/22 周一·18:00飞", title: "🏛️天坛·🥩牛街→✈️", locations: [
+    { name: "天坛公园", lat: 39.8822, lng: 116.4066, type: "spot", time: "09:00-12:00", desc: "祈年殿+回音壁，联票34元" },
+    { name: "牛街（聚宝源）", lat: 39.8885, lng: 116.3589, type: "food", time: "12:00-13:00", desc: "聚宝源涮肉收尾→去机场✈️" },
   ] },
 ];
 function overviewContent() {
   return `
-<div class="hero"><h1>🏯 北京 7 日游 · 优化融合版</h1><p class="subtitle">6/17 17:00到 → 6/23 18:00飞 | 19景点全覆盖</p></div>
+<div class="hero"><h1>🏯 北京 7 日游 · 最终版</h1><p class="subtitle">6/16（二）→ 6/22（一）18:00飞 | 环球放6/17工作日</p></div>
 <div class="info-grid">
   <div class="info-card"><div class="label">🏨 住宿</div><div class="value">前门G口附近</div></div>
-  <div class="info-card"><div class="label">🎯 策略</div><div class="value">环球6/22周一<br><span style="font-size:13px;font-weight:400;color:var(--text-secondary)">什刹海18:30看日落</span></div></div>
+  <div class="info-card"><div class="label">🎯 节奏</div><div class="value">前期快乐→核心→慢下来<br><span style="font-size:13px;font-weight:400;color:var(--text-secondary)">环球提前，越玩越舒服</span></div></div>
   <div class="info-card"><div class="label">🚇 交通</div><div class="value">亿通行APP</div></div>
   <div class="info-card"><div class="label">💰 预算</div><div class="value">~3k-5k元</div></div>
 </div>
 
-<div class="section-head">⚠️ 最重要的提醒</div>
+<div class="section-head">⚠️ 重要提醒</div>
 <div class="info-grid">
   <div class="info-card" style="grid-column:1/-1;background:var(--tint-red);color:#fff;border:none">
-    <div style="font-size:14px;font-weight:500">🔴 故宫今晚(6/14)20:00放6/18票！小程序「故宫博物院」提前实名认证</div>
+    <div style="font-size:14px;font-weight:500">🔴 故宫6/18已抢到票 ✅ | 今晚记得约八达岭长城和天安门升旗</div>
   </div>
   <div class="info-card" style="grid-column:1/-1;background:var(--tint-orange);color:#fff;border:none">
-    <div style="font-size:14px;font-weight:500">🌅 6/21什刹海18:30-19:40看日落 — 6月北京19:40日落</div>
+    <div style="font-size:14px;font-weight:500">🎢 环球6/17（周三工作日）+ 优速通，体验最佳</div>
   </div>
-  <div class="info-card" style="grid-column:1/-1;background:var(--tint-blue);color:#fff;border:none">
-    <div style="font-size:14px;font-weight:500">🌃 6/18新增奥林匹克公园夜景 — 鸟巢+水立方，现代北京代表</div>
+  <div class="info-card" style="grid-column:1/-1;background:var(--accent);color:#fff;border:none">
+    <div style="font-size:14px;font-weight:500">🌅 6/20什刹海18:30-19:40看日落｜🌃 6/19奥林匹克夜景</div>
   </div>
 </div>
 
 <div class="section-head">📋 完整行程</div>
 <div class="info-grid">
   <div class="info-card" style="grid-column:1/-1;background:#fff;border-left:4px solid var(--tint-blue)">
-    <div style="font-size:14px;font-weight:600">Day1 6/17（三）17:00到</div>
+    <div style="font-size:14px;font-weight:600">Day1 6/16（二）出发 17:00到</div>
     <div style="font-size:13px;margin-top:4px;color:var(--text-secondary);line-height:1.6">
-    <b>17:00-20:30</b> 前门胡同群逛吃（西打磨厂→草厂三条→鲜鱼口→大栅栏→北京坊）
-    </div>
-  </div>
-  <div class="info-card" style="grid-column:1/-1;background:#fff;border-left:4px solid var(--tint-red)">
-    <div style="font-size:14px;font-weight:600">Day2 6/18（四）⭐升旗·🏛️故宫·⛰️景山·🌃奥林匹克夜景</div>
-    <div style="font-size:13px;margin-top:4px;color:var(--text-secondary);line-height:1.6">
-    <b>03:30</b> 天安门安检<br>
-    <b>~04:45</b> ⭐升旗 → 回前门补觉<br>
-    <b>09:00-15:00</b> 🏛️故宫全天深度（中轴线→珍宝馆→东西六宫）<br>
-    <b>15:00-15:40</b> ⛰️景山公园（2元，故宫全景）<br>
-    <b>（可选）16:00-17:30</b> 🛍️王府井 ⚠️可删<br>
-    <b>18:30-20:00</b> 🌃奥林匹克公园夜景（新增🔥）
-    </div>
-  </div>
-  <div class="info-card" style="grid-column:1/-1;background:#fff;border-left:4px solid #8e8e93">
-    <div style="font-size:14px;font-weight:600">Day3 6/19（五·端午）🧱长城一日</div>
-    <div style="font-size:13px;margin-top:4px;color:var(--text-secondary);line-height:1.6">
-    <b>07:00-07:25</b> 🚄高铁到八达岭<br>
-    <b>08:00-12:00</b> 🧱长城半程（好汉坡）<br>
-    下午自由休息
-    </div>
-  </div>
-  <div class="info-card" style="grid-column:1/-1;background:#fff;border-left:4px solid var(--tint-green)">
-    <div style="font-size:14px;font-weight:600">Day4 6/20（六·端午）🏛️国博·🥩牛街·🏛️天坛</div>
-    <div style="font-size:13px;margin-top:4px;color:var(--text-secondary);line-height:1.6">
-    <b>09:00-12:00</b> 🏛️国博（免费，古代中国展厅）<br>
-    <b>12:00-14:00</b> 🥩牛街聚宝源<br>
-    <b>15:00-17:00</b> 🏛️天坛（联票34元）
-    </div>
-  </div>
-  <div class="info-card" style="grid-column:1/-1;background:#fff;border-left:4px solid var(--tint-orange)">
-    <div style="font-size:14px;font-weight:600">Day5 6/21（日·端午）🏯北海·雍和宫·鼓楼·恭王府·🌅什刹海日落</div>
-    <div style="font-size:13px;margin-top:4px;color:var(--text-secondary);line-height:1.6">
-    <b>09:00-10:30</b> 🏯北海公园（10元）<br>
-    <b>11:00-12:00</b> 🏯雍和宫（25元）<br>
-    <b>（可选）12:00-12:20</b> 🌳地坛公园 ⚠️可删<br>
-    <b>14:00-15:00</b> 🥁鼓楼<br>
-    <b>15:00-16:30</b> 🏘️恭王府（40元）<br>
-    <b>16:30-17:00</b> 🚶烟袋斜街<br>
-    <b>18:30-19:40</b> 🌅什刹海看日落 🔥强烈推荐
+    <b>17:00-20:30</b> 到北京→前门入住→🌆前门胡同群逛吃
     </div>
   </div>
   <div class="info-card" style="grid-column:1/-1;background:#fff;border-left:4px solid var(--tint-purple)">
-    <div style="font-size:14px;font-weight:600">Day6 6/22（一）🎢环球影城</div>
+    <div style="font-size:14px;font-weight:600">Day2 6/17（三）工作日 🎢环球影城</div>
     <div style="font-size:13px;margin-top:4px;color:var(--text-secondary);line-height:1.6">
-    <b>08:30-20:30</b> 环球影城全天（周一人最少，建议优速通）
+    <b>08:30-20:30</b> 环球影城全天（工作日+优速通，体验最佳⭐）
+    </div>
+  </div>
+  <div class="info-card" style="grid-column:1/-1;background:#fff;border-left:4px solid var(--tint-red)">
+    <div style="font-size:14px;font-weight:600">Day3 6/18（四）⭐升旗·故宫·景山</div>
+    <div style="font-size:13px;margin-top:4px;color:var(--text-secondary);line-height:1.6">
+    <b>03:30-04:45</b> ⭐升旗→回前门补觉<br>
+    <b>09:00-15:00</b> 🏛️故宫全天深度（已抢票✅）<br>
+    <b>15:00-15:40</b> ⛰️景山公园（2元，故宫全景）
+    </div>
+  </div>
+  <div class="info-card" style="grid-column:1/-1;background:#fff;border-left:4px solid #8e8e93">
+    <div style="font-size:14px;font-weight:600">Day4 6/19（五·端午）🧱长城·🌃奥林匹克夜景</div>
+    <div style="font-size:13px;margin-top:4px;color:var(--text-secondary);line-height:1.6">
+    <b>07:00-07:25</b> 🚄高铁到八达岭<br>
+    <b>08:00-12:00</b> 🧱长城半程（好汉坡）<br>
+    下午自由休息<br>
+    <b>18:30-20:00</b> 🌃奥林匹克公园夜景（鸟巢+水立方）
+    </div>
+  </div>
+  <div class="info-card" style="grid-column:1/-1;background:#fff;border-left:4px solid var(--tint-orange)">
+    <div style="font-size:14px;font-weight:600">Day5 6/20（六·端午）🏯胡同日·🌅什刹海日落</div>
+    <div style="font-size:13px;margin-top:4px;color:var(--text-secondary);line-height:1.6">
+    <b>09:00-10:30</b> 🏯北海公园（10元）<br>
+    <b>11:00-12:00</b> 🏯雍和宫（25元）<br>
+    <b>12:00-12:20</b> 🌳地坛公园 ⚠️可删<br>
+    <b>14:00-15:00</b> 🥁鼓楼<br>
+    <b>15:00-16:30</b> 🏘️恭王府（40元）<br>
+    <b>16:30-17:00</b> 🚶烟袋斜街<br>
+    <b>18:30-19:40</b> 🌅什刹海看日落🔥
+    </div>
+  </div>
+  <div class="info-card" style="grid-column:1/-1;background:#fff;border-left:4px solid var(--tint-green)">
+    <div style="font-size:14px;font-weight:600">Day6 6/21（日·端午）🌿颐和园·🏛️圆明园</div>
+    <div style="font-size:13px;margin-top:4px;color:var(--text-secondary);line-height:1.6">
+    <b>09:00-12:30</b> 🌿颐和园（联票60元）<br>
+    <b>14:00-16:00</b> 🏛️圆明园（联票25元）
     </div>
   </div>
   <div class="info-card" style="grid-column:1/-1;background:#fff;border-left:4px solid #34c759">
-    <div style="font-size:14px;font-weight:600">Day7 6/23（二）18:00飞✈️ 🌿颐和园·🏛️圆明园</div>
+    <div style="font-size:14px;font-weight:600">Day7 6/22（一）18:00飞✈️ 🏛️天坛·🥩牛街</div>
     <div style="font-size:13px;margin-top:4px;color:var(--text-secondary);line-height:1.6">
-    <b>08:00-12:00</b> 🌿颐和园（联票60元，越早越凉快）<br>
-    <b>13:00-15:00</b> 🏛️圆明园（联票25元）<br>
-    <b>15:00-16:30</b> 🚇去机场→<b>18:00</b>✈️飞广州
+    <b>09:00-12:00</b> 🏛️天坛（联票34元）<br>
+    <b>12:00-13:00</b> 🥩牛街聚宝源涮肉收尾<br>
+    <b>13:00-14:00</b> 🚇去机场→<b>18:00</b>✈️飞广州
     </div>
   </div>
 </div>
@@ -365,18 +361,17 @@ function overviewContent() {
 <div class="section-head">📱 预约清单</div>
 <div class="info-grid">
   <div class="info-card" style="grid-column:1/-1;background:#ff3b30;color:#fff;border:none">
-    <div style="font-size:14px;font-weight:600">🔴 今晚8点抢</div>
-    <div style="font-size:13px;margin-top:4px;opacity:.9">故宫（6/18）— 「故宫博物院」小程序，提前实名认证</div>
+    <div style="font-size:14px;font-weight:600">✅ 已抢到</div>
+    <div style="font-size:13px;margin-top:4px;opacity:.9">故宫（6/18）— 「故宫博物院」小程序 ✅</div>
   </div>
   <div class="info-card" style="grid-column:1/-1;background:#ff9500;color:#fff;border:none">
-    <div style="font-size:14px;font-weight:600">🟡 现在就能约</div>
+    <div style="font-size:14px;font-weight:600">🟡 现在约</div>
     <div style="font-size:13px;margin-top:6px;opacity:.9">
     • 天安门升旗（6/18）— 「天安门广场预约参观」选升旗<br>
     • 八达岭长城（6/19）— 「长城内外旅游」小程序，40元<br>
-    • 国博（6/20）— 「国家博物馆」小程序，免费<br>
-    • 天坛（6/20）— 「畅游公园」小程序，联票34元<br>
-    • 恭王府（6/21）— 「恭王府博物馆」小程序，40元<br>
-    • 环球影城（6/22）— 官方小程序买票+优速通
+    • 环球影城（6/17）— 官方小程序买票+优速通<br>
+    • 天坛（6/22）— 「畅游公园」小程序，联票34元<br>
+    • 恭王府（6/20）— 「恭王府博物馆」小程序，40元
     </div>
   </div>
   <div class="info-card" style="grid-column:1/-1;border-left:4px solid #34c759">
@@ -389,13 +384,13 @@ function overviewContent() {
   </div>
 </div>
 
-<div class="section-head">✅ 19景点全覆盖</div>
+<div class="section-head">✅ 17景点全覆盖</div>
 <div class="info-grid">
   <div class="info-card" style="grid-column:1/-1">
     <div style="font-size:13px;color:var(--text-secondary);line-height:1.8">
-    天坛 · 国博 · 故宫 · 升旗 · 颐和园 · 地坛 · 八达岭 · 景山 · 什刹海 · 圆明园 · 环球 · 王府井 · 鼓楼 · 恭王府 · 雍和宫 · 北海 · 前门胡同 · 牛街 · 烟袋斜街<br><br>
-    🆕 新增推荐：奥林匹克公园夜景、什刹海日落咖啡馆<br>
-    ⚠️ 可删：王府井、地坛
+    故宫✅ · 升旗✅ · 环球✅ · 长城✅ · 颐和园✅ · 圆明园✅ · 北海✅ · 雍和宫✅ · 地坛✅ · 鼓楼✅ · 恭王府✅ · 什刹海✅ · 烟袋斜街✅ · 天坛✅ · 牛街✅ · 前门胡同✅ · 景山✅ · 奥林匹克夜景✅<br><br>
+    ⚠️ 舍弃：国博（约不到票）<br>
+    ⚠️ 可删：地坛、王府井
     </div>
   </div>
 </div>`;
